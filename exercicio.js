@@ -74,12 +74,14 @@ class Ponto{
         return this.eixoY
     }
 
+    //mover em ambos eixos
     mover(distanciaX, distanciaY){
         this.x = distanciaX
         this.y = distanciaY
         return [ this.x, this.y ] 
     }
 
+    //calcular a distância entre os pontos
     distancia_entre_dois_pontos(outro_ponto) {
         const x1 = this.x
         const y1 = this.y
