@@ -1,5 +1,0 @@
-//Criando objeto
-const rect = {
-    altura =10,
-    largura = 30
-}
