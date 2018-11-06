@@ -47,5 +47,3 @@ class Quadrado extends Rect {
         // this.eUmQuadrado = true
     }
 }
-
-//teste de atualização

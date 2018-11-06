@@ -45,8 +45,48 @@ class Div extends Ponto {
         this.node.style.width = this.largura + "px"
         this.node.style.height = this.altura + "px"
         this.node.style.backgroundColor = this.cor
-        this.node.style.top = this.x + "px"
-        this.node.style.left = this.y + "px"
+        this.node.style.left = this.x + "px"
+        this.node.style.top = this.y + "px"
         body.appendChild(this.node)
     }
+
+    mover_div(distanciaX, distanciaY) {
+        this.x += distanciaX
+        this.y += distanciaY
+        return [ this.x, this.y ]
+    }
+
+    // direções
+    mover_na_tela(direcao) {
+        const incremento = 10
+        if (direcao === "up") {
+            this.mover_verticalmente(-incremento)
+            this.node.style.top = this.y + "px"
+        } else if (direcao === "down") {
+            this.mover_verticalmente(incremento)
+            this.node.style.top = this.y + "px"
+        } else if (direcao === "left") {
+            this.mover_horizontalmente(-incremento)
+            this.node.style.left = this.x + "px"
+        } else if (direcao === "right") {
+            this.mover_horizontalmente(incremento)
+            this.node.style.left = this.x + "px"
+        }
+    }
+
 }
+
+//construção de uma DIV
+const div = new Div("bea", "lime", 300, 300, 150, 150)
+div.desenhar ()
+document.addEventListener("keydown", function(event){
+    if (event.key === "ArrowUp") {
+        div.mover_na_tela("up", 10)
+    } else if (event.key === "ArrowDown") {
+        div.mover_na_tela("down", 100)
+    } else if (event.key === "ArrowLeft") {
+        div.mover_na_tela("left", 20)
+    } else if (event.key === "ArrowRight") {
+        div.mover_na_tela("right", 30)
+    }
+})
